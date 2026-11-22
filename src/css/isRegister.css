@@ -1,0 +1,205 @@
+/* ページ全体 */
+.register-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  box-sizing: border-box;
+  background: #0b1120;
+  color: #f1f5f9;
+}
+
+/* 登録カード */
+.register-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 40px;
+  box-sizing: border-box;
+  background: #151f32;
+  border: 1px solid #26344b;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+/* ヘッダー */
+.register-header {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.register-header h2 {
+  margin: 0 0 10px;
+  font-size: 28px;
+  letter-spacing: 1px;
+}
+
+.register-header p {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+/* フォーム */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.register-group {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.register-label {
+  color: #cbd5e1;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* 入力欄 */
+.register-input {
+  width: 100%;
+  padding: 13px 15px;
+  box-sizing: border-box;
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  color: #f8fafc;
+  font-size: 15px;
+  outline: none;
+  transition: 0.2s;
+}
+
+.register-input::placeholder {
+  color: #64748b;
+}
+
+.register-input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+/* 入力エラー */
+.register-error {
+  margin: 0;
+  color: #f87171;
+  font-size: 12px;
+}
+
+/* アカウント作成ボタン */
+.register-button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 5px;
+  background: #2563eb;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.register-button:hover:not(:disabled) {
+  background: #3b82f6;
+  transform: translateY(-2px);
+}
+
+.register-button:disabled {
+  background: #334155;
+  color: #94a3b8;
+  cursor: not-allowed;
+}
+
+/* ログインへの案内 */
+.register-footer {
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid #26344b;
+  text-align: center;
+}
+
+.register-footer p {
+  margin: 0 0 12px;
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+.register-login-button {
+  background: transparent;
+  border: none;
+  color: #60a5fa;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.register-login-button:hover {
+  color: #93c5fd;
+}
+.register-alert {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 16px;
+  margin-top: 18px;
+  background-color: #fff1f2;
+  border: 1px solid #fecdd3;
+  border-left: 5px solid #e11d48;
+  border-radius: 8px;
+  color: #be123c;
+  animation: register-alert-appear 0.25s ease;
+}
+
+.register-alert-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #e11d48;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.register-alert-content strong {
+  display: block;
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.register-alert-content p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+}
+/* スマホ対応 */
+
+@keyframes register-alert-appear {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (max-width: 480px) {
+  .register-card {
+    padding: 28px 22px;
+  }
+
+  .register-header h2 {
+    font-size: 24px;
+  }
+}

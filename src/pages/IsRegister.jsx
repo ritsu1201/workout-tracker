@@ -6,6 +6,7 @@ import "../css/isRegister.css";
 export default function IsRegister() {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  // ユーザー名が重複した場合画面を更新して警告を出したいので
   const [isUserNameTaken, setIsUserNameTaken] = useState(false);
   const navigate = useNavigate();
   const { users, setUsers, loginUser, setLoginUser } = useContext(UserContext);
@@ -76,6 +77,7 @@ export default function IsRegister() {
                 setUsers(NewUsers);
                 // ログインユーザーを入れる
                 setLoginUser(NewUser);
+                localStorage.setItem("LoginUser", JSON.stringify(NewUser));
                 localStorage.setItem("users", JSON.stringify(NewUsers));
                 navigate(`/home/${NewUser.id}`);
               }

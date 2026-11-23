@@ -1,0 +1,14 @@
+.home {
+  min-height: 100vh;
+  padding: 30px;
+  background-color: #f5f6fa;
+}
+
+.menu-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  background-color: #222;
+  color: white;
+  cursor: pointer;
+}

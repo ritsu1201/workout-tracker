@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router";
 import { UserContext } from "../context/UserContext";
 import "../css/login.css";
@@ -6,6 +6,7 @@ import "../css/login.css";
 export default function Login() {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  // アカウントが見つからなかった時に画面を更新したい
   const [isAccountNotFound, setIsAccountNotFound] = useState(false);
   const navigate = useNavigate();
   const { users, setUsers, loginUser, setLoginUser } = useContext(UserContext);
@@ -65,6 +66,7 @@ export default function Login() {
 
               if (user) {
                 setLoginUser(user);
+                localStorage.setItem("LoginUser", JSON.stringify(user));
                 navigate(`/home/${user.id}`);
               } else {
                 setIsAccountNotFound(true);
@@ -82,7 +84,7 @@ export default function Login() {
                 <p>ユーザー名またはパスワードを確認してください。</p>
               </div>
             </div>
-          )}{" "}
+          )}
           <div className="login-footer">
             <p>アカウントをお持ちでない場合</p>
             <button

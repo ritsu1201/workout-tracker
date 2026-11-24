@@ -1,0 +1,5 @@
+/* 共通レイアウト */
+.main-layout {
+  min-height: 100vh;
+  background: #0b1120;
+}

@@ -1,14 +1,40 @@
-.home {
-  min-height: 100vh;
-  padding: 30px;
-  background-color: #f5f6fa;
+/* ホームヘッダー */
+.home-header {
+  width: 100%;
+  padding: 28px 32px;
+  margin-top: 24px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: 24px;
+  box-sizing: border-box;
+}
+/* ヘッダーコンテンツ */
+.home-header__content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.menu-button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 6px;
-  background-color: #222;
-  color: white;
-  cursor: pointer;
+/* 挨拶タイトル */
+.home-header__title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: #222222;
+}
+
+/* メッセージ */
+.home-header__message {
+  margin: 0;
+  font-size: 14px;
+  color: #777777;
+  line-height: 1.6;
+}
+
+/* 読み込み中 */
+.home-header__loading {
+  margin: 0;
+  font-size: 14px;
+  color: #777777;
 }

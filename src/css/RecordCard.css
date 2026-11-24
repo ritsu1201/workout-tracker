@@ -1,0 +1,98 @@
+.record-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 20px;
+  background-color: #172235;
+  border: 1px solid #29374d;
+  border-radius: 12px;
+  transition: 0.2s;
+}
+
+.record-card:hover {
+  border-color: #456080;
+  transform: translateY(-2px);
+}
+
+.record-card-label {
+  color: #64748b;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.record-card-info h3 {
+  margin: 6px 0 0;
+  color: #f1f5f9;
+  font-size: 16px;
+}
+
+.record-card-weight {
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+.record-card-weight span {
+  font-size: 24px;
+  font-weight: 700;
+  color: #60a5fa;
+}
+
+.record-card-weight small {
+  margin-left: 4px;
+  color: #94a3b8;
+}
+
+/* 操作ボタン */
+.record-card-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.record-card-actions button {
+  padding: 9px 12px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.record-edit-button {
+  background-color: #1e3a5f;
+  color: #93c5fd;
+}
+
+.record-edit-button:hover {
+  background-color: #284c77;
+}
+
+.record-delete-button {
+  background-color: #44232e;
+  color: #fca5a5;
+}
+
+.record-delete-button:hover {
+  background-color: #632d3b;
+}
+
+/* スマホ対応 */
+@media (max-width: 500px) {
+  .record-card {
+    flex-wrap: wrap;
+  }
+
+  .record-card-weight {
+    margin-left: 0;
+  }
+
+  .record-card-actions {
+    width: 100%;
+  }
+
+  .record-card-actions button {
+    flex: 1;
+  }
+}

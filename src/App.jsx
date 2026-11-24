@@ -7,6 +7,7 @@ import Form from "./pages/Form";
 import Record from "./pages/Record";
 import Account from "./pages/Account";
 import NotFound from "./components/NotFound";
+import MainLayout from "./layouts/MainLayout";
 import { useState } from "react";
 export default function App() {
   // アプリ起動後、App関数実行時点でユーザー情報を取得したいので初期値に関数を設定
@@ -26,11 +27,13 @@ export default function App() {
       >
         <Routes>
           <Route path="/" element={<Login />} />
-          <Route path="/home/:userId" element={<Home />} />
           <Route path="/isRegister" element={<IsRegister />} />
-          <Route path="/form" element={<Form />} />
-          <Route path="/record" element={<Record />} />
-          <Route path="/account" element={<Account />} />
+          <Route element={<MainLayout />}>
+            <Route path="/home/:userId" element={<Home />} />
+            <Route path="/form" element={<Form />} />
+            <Route path="/record" element={<Record />} />
+            <Route path="/account" element={<Account />} />
+          </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
       </UserContext.Provider>

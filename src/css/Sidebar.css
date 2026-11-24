@@ -1,12 +1,16 @@
-/* サイドバー外側の背景 */
+/* =========================
+   オーバーレイ
+========================= */
+
 .sidebar-overlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(3px);
   opacity: 0;
   visibility: hidden;
   transition: 0.3s;
-  z-index: 10;
+  z-index: 100;
 }
 
 .sidebar-overlay.active {
@@ -14,49 +18,213 @@
   visibility: visible;
 }
 
-/* サイドバー本体 */
+/* =========================
+   サイドバー本体
+========================= */
+
 .sidebar {
   position: fixed;
   top: 0;
   left: 0;
-  width: 280px;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 290px;
   height: 100vh;
-  padding: 25px;
+  padding: 28px 20px;
+
   box-sizing: border-box;
-  background-color: #222;
-  color: white;
+
+  background: #171c28;
+  color: #f1f5f9;
+
   transform: translateX(-100%);
-  transition: transform 0.3s;
-  z-index: 11;
+  transition: transform 0.3s ease;
+
+  z-index: 101;
+
+  border-right: 1px solid #293448;
 }
 
 .sidebar.open {
   transform: translateX(0);
 }
 
-/* 閉じるボタン */
-.sidebar-close {
-  padding: 10px 15px;
-  margin-bottom: 30px;
-  cursor: pointer;
+/* =========================
+   ヘッダー
+========================= */
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-bottom: 28px;
+  border-bottom: 1px solid #293448;
 }
 
-/* メニュー */
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sidebar-brand-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 38px;
+  height: 38px;
+
+  border-radius: 10px;
+
+  background: #2563eb;
+  color: white;
+
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.sidebar-brand-name {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: #cbd5e1;
+}
+
+/* 閉じるボタン */
+
+.sidebar-close {
+  width: 34px;
+  height: 34px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #293448;
+  color: #cbd5e1;
+
+  font-size: 15px;
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.sidebar-close:hover {
+  background: #3b475b;
+  color: white;
+}
+
+/* =========================
+   メニュー
+========================= */
+
 .sidebar-nav {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 8px;
+
+  margin-top: 32px;
 }
+
+.sidebar-section-title {
+  margin: 0 0 12px 10px;
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+
+  color: #64748b;
+}
+
+/* メニュー共通 */
 
 .sidebar-nav a,
-.sidebar-nav span {
-  color: white;
+.sidebar-logout {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  width: 100%;
+  min-height: 48px;
+  padding: 0 14px;
+
+  box-sizing: border-box;
+
+  border: none;
+  border-radius: 9px;
+
+  background: transparent;
+  color: #aebbd0;
+
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+
   text-decoration: none;
   cursor: pointer;
-  padding: 10px;
+
+  transition: 0.2s;
 }
 
+/* アイコン */
+
+.sidebar-link-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 22px;
+  height: 22px;
+
+  font-size: 19px;
+  color: #94a3b8;
+}
+
+/* ホバー */
+
 .sidebar-nav a:hover,
+.sidebar-logout:hover {
+  background: #252f40;
+  color: white;
+}
+
+/* 選択中 */
+
 .sidebar-nav a.active {
-  background-color: #444;
+  background: #233b63;
+  color: #60a5fa;
+
+  border-left: 3px solid #3b82f6;
+}
+
+.sidebar-nav a.active .sidebar-link-icon {
+  color: #60a5fa;
+}
+
+/* =========================
+   フッター
+========================= */
+
+.sidebar-footer {
+  margin-top: auto;
+  padding-top: 20px;
+
+  border-top: 1px solid #293448;
+}
+
+.sidebar-logout {
+  color: #f87171;
+}
+
+.sidebar-logout .sidebar-link-icon {
+  color: #f87171;
+}
+
+.sidebar-logout:hover {
+  background: rgba(248, 113, 113, 0.1);
+  color: #fca5a5;
 }

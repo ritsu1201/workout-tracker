@@ -9,7 +9,7 @@ export default function Sidebar({ open, setOpen }) {
 
   return (
     <>
-      { /* サイドバー外側の背景 */ }
+      {/* サイドバー外側の背景 */}
       <div
         className={`sidebar-overlay ${open ? "active" : ""}`}
         onClick={() => {
@@ -17,31 +17,52 @@ export default function Sidebar({ open, setOpen }) {
         }}
       />
 
-      { /* サイドバー本体 */ }
+      {/* サイドバー本体 */}
       <aside className={`sidebar ${open ? "open" : ""}`}>
-        <button
-          className="sidebar-close"
-          onClick={() => {
-            setOpen(false);
-          }}
-        >
-          閉じる
-        </button>
+        <div className="sidebar-header">
+          <div className="sidebar-brand">
+            <span className="sidebar-brand-icon">WT</span>
+            <span className="sidebar-brand-name">WORKOUT TRACKER</span>
+          </div>
+
+          <button
+            className="sidebar-close"
+            onClick={() => {
+              setOpen(false);
+            }}
+            aria-label="メニューを閉じる"
+          >
+            ✕
+          </button>
+        </div>
 
         <nav className="sidebar-nav">
+          <p className="sidebar-section-title">MENU</p>
+
+          <NavLink to="/home/:userId" onClick={() => setOpen(false)}>
+            <span className="sidebar-link-icon">⌂</span>
+            HOME
+          </NavLink>
+
           <NavLink to="/form" onClick={() => setOpen(false)}>
-            記録
+            <span className="sidebar-link-icon">＋</span>
+            TRAINING FORM
           </NavLink>
 
           <NavLink to="/record" onClick={() => setOpen(false)}>
-            記録一覧
+            <span className="sidebar-link-icon">▤</span>
+            TRAINING RECORD
           </NavLink>
 
           <NavLink to="/account" onClick={() => setOpen(false)}>
-            アカウント設定
+            <span className="sidebar-link-icon">♙</span>
+            ACCOUNT
           </NavLink>
+        </nav>
 
-          <span
+        <div className="sidebar-footer">
+          <button
+            className="sidebar-logout"
             onClick={() => {
               navigate("/");
               setLoginUser(null);
@@ -49,9 +70,10 @@ export default function Sidebar({ open, setOpen }) {
               setOpen(false);
             }}
           >
-            ログアウト
-          </span>
-        </nav>
+            <span className="sidebar-link-icon">↪</span>
+            LOG OUT
+          </button>
+        </div>
       </aside>
     </>
   );
